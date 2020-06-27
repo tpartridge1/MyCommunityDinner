@@ -1,41 +1,37 @@
-import React from 'react';
+import React, {Component} from 'react';
+import Header from './Header/header';
 import ItemInput from './ItemInput/ItemInput';
 import ShoppingList from './ShoppingList/ShoppingList';
+import Footer from './Footer/footer';
 import './App.css';
 import 'tachyons';
-
-
-const initialState = {
-      input: '',
-      imageUrl: '',
-      box: {},
-      route: 'signin',
-      isSignedIn: false,
-      user: {
-        id: '',
-        name: '',
-        email: '',
-        lists: 0,
-        joined: ''
-      }
-    }
+import Navigation from './Navigation/navigation';
 
 
 
-class App extends React.Component {
-  constructor() {
-    super();
-    this.state = initialState;
 
 
+
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { enteritem: '' };
 }
 
+myChangeHandler = (event) => {
+  this.setState({enteritem: event.target.value});
+}
+
+ 
   render() {
     return (     
       <div className="App">
-      My community Dinner!
-        <ItemInput />
-        <ShoppingList />
+          <Navigation />
+          <Header />
+          <ItemInput />
+          <ShoppingList />
+          <p>Save, Print, Start Over</p>
+          <Footer />
       </div>
     );
   }

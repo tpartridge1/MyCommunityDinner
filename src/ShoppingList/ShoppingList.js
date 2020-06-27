@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {Component} from 'react';
 
-class ShoppingList extends React.Component {
+class ShoppingList extends Component {
 	 render() {
 	   return (     
        <div>
