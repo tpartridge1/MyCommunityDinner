@@ -1,12 +1,11 @@
 import React, {Component} from 'react';
 
-class ItemInput extends Component {
+class PriceInput extends Component {
   render() {
     return (    
       <div>
       <form>
-      <h1>My Shopping List </h1>
-      <p>Enter items: </p>
+      <p>Enter price: </p>
       <input
         type="text" onChange={this.myChangeHandler}
       />
@@ -16,6 +15,4 @@ class ItemInput extends Component {
  }
 }
 
-
-export default ItemInput;
-
+export default PriceInput;
