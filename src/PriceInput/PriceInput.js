@@ -5,6 +5,10 @@ class PriceInput extends Component {
     return (    
       <div>
       <form>
+      <p>Search for Item(s)</p>
+      <input
+        type="text" onChange={this.myChangeHandler}
+      />
       <p>Enter price: </p>
       <input
         type="text" onChange={this.myChangeHandler}

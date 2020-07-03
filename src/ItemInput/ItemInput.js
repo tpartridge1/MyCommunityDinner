@@ -6,7 +6,7 @@ class ItemInput extends Component {
       <div>
       <form>
       <h1>My Shopping List </h1>
-      <p>Enter items: </p>
+      <p>Enter item(s): </p>
       <input
         type="text" onChange={this.myChangeHandler}
       />
