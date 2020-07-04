@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 
 const ShoppingList = props => {
     console.log(props);

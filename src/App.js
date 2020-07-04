@@ -15,18 +15,36 @@ import 'tachyons';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { 
-      enteritem: '',
-      enterprice: '',
-      search: ''
-    };
+    this.state = {   
+       search: [,
+       {language:'EN'},
+       {keywords: ''},
+       {country: 'US'}
+       ],
+       item: '',
+       curency: '$',
+       price: '',
+       google_shopping_id: 'NULL'
+    }
+  }  
+  
+
+componentDidMount () {
+  fetch("https://google-shopping.p.rapidapi.com/search?language=EN&keywords=laptop&country=US", {
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-host": "google-shopping.p.rapidapi.com",
+		"x-rapidapi-key": "b6212c8396msh5b7ccadd0ae7126p1a5edajsneb9528f0ab7e"
+	}
+})
+.then(response => response.json())
+.then(items => this.setState({search}))
+.catch(err => {
+	console.log(err);
+});
 }
 
-myChangeHandler = (event) => {
-  this.setState({enteritem: event.target.value});
-  this.setState({enterprice: event.target.value});
-  this.setState({search: event.target.value});
-}
+
 
  
   render() {
@@ -36,12 +54,9 @@ myChangeHandler = (event) => {
           <Header />
           <ItemInput />
           <Unit />
-          <PriceInput />
+          <PriceInput  />
           <ShoppingList />
           <Calculate />
-          <button className="" type="submit">Save</button>
-          <button className="" type="submit">Print</button>
-          <button className="" type="submit">Start Over</button>
           <Footer />
       </div>
     );
