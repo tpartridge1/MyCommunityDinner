@@ -1,14 +1,13 @@
 import React from 'react';
 
-const ShoppingList = props => {
-    console.log(props);
+class ShoppingList extends Component {
+	 render() {
 	   return (     
        <div>
-        
      </div>
     );
   }
-
+}
 
 
 export default ShoppingList;

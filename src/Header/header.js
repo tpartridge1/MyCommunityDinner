@@ -7,7 +7,7 @@ class Header extends Component {
 	   return (     
         <div className="header">
         <h1>My Community Dinner</h1>
-        <p>Add Your Recipe Items. Find Prices. Make a List. Know Your Cost.</p>
+        <p>Add your recipe items, find prices, make a list, know your cost.</p>
       </div>
     );
   }
