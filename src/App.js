@@ -34,7 +34,7 @@ componentDidMount () {
 	"method": "GET",
 	"headers": {
 		"x-rapidapi-host": "google-shopping.p.rapidapi.com",
-		"x-rapidapi-key": "b6212c8396msh5b7ccadd0ae7126p1a5edajsneb9528f0ab7e"
+		"x-rapidapi-key": ""
 	}
 })
 .then(response => response.json())
