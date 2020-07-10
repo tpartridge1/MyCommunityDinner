@@ -14,12 +14,23 @@ import 'tachyons';
 class App extends Component {
     constructor(props) {
       super(props);
-      this.state = {
-          items: [ 'Milk', 'Cookies', 'napkin'],
-       };
+     this.state = {
+        items: []
+     };
+
+      this.addItem = this.addItem.bind(this);
+          
     }
 
-   
+    addItem(e) {
+
+    }
+
+
+  
+    
+
+    
     render() {
       return (     
         <div className="App">
@@ -28,11 +39,9 @@ class App extends Component {
             {/*<ItemInput > */}
             {/*<Unit />* /}
             {/*<PriceInput  /> */}
-            <ShoppingList  />
+            <ShoppingList />
             {/*<Calculate /> */}
             <p>Save, Print, Start Over</p>
-         
-  
             <Footer />
         </div>
       );
