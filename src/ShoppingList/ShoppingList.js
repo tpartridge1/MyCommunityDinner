@@ -6,17 +6,18 @@ class ShoppingList extends Component {
 	 render() {
 	   return (     
        <div>
-         <h1>Make a list</h1>
+         <h2 id="shopListHeader">My Shopping List</h2>
          <form onSubmit={this.addItem}>
-          <input id='add-listItem' placeholder='enter item' />
+          <input id='add-listItem' ref={(el) => this._inputElement = el} placeholder='enter item' /> 
           <select name="unit" id="unit">
-            <option value="ea">Each</option>
-            <option value="pkg">Package</option>
+            <option value="ea">each</option>
+            <option value="can">can</option>
+            <option value="pkg">package</option>
             <option value="pound">lb</option>
             <option value="ounces">oz</option>
-            <option value="bag">Bag</option>
-            <option value="cup">Cup</option>
-            <option value="box">Box</option>
+            <option value="bag">bag</option>
+            <option value="cup">cup</option>
+            <option value="box">box</option>
             </select>
           <button className= 'enter-btn' type='submit'>Add</button>
          </form>
