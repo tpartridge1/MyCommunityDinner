@@ -7,8 +7,11 @@ class ShoppingList extends Component {
 	   return (     
        <div>
          <h2 id="shopListHeader">My Shopping List</h2>
-         <form onSubmit={this.addItem}>
-          <input id='add-listItem' ref={(el) => this._inputElement = el} placeholder='enter item' /> 
+         <form onSubmit={this.handleSubmit}>
+           <label>
+             Add Item: 
+            <input type="text" items={this.state} onSubmit={this.onSubmit}/>
+           </label>
           <select name="unit" id="unit">
             <option value="ea">each</option>
             <option value="can">can</option>
@@ -19,7 +22,7 @@ class ShoppingList extends Component {
             <option value="cup">cup</option>
             <option value="box">box</option>
             </select>
-          <button className= 'enter-btn' type='submit'>Add</button>
+            <input type="Submit" onChange={this.handleChange}/>
          </form>
      </div>
     );

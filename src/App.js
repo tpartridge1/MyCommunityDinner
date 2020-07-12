@@ -12,61 +12,21 @@ import 'tachyons';
 
 
 class App extends Component {
-    constructor(props) {
-      super(props);
-      this.state = {
-        items: [], //items input
+  constructor() {
+    super();
+    this.state = {
+      items: '',
+    };
 
-     };
+  }
 
-      this.addItem = this.addItem.bind(this); //bind calls an item and waits
-      //this.setNewListItem = this.setNewListItem.bind(this); //bind adds the new item
-          
-    }
-
-    //itemValue(e) { 
-    //  this.setState({    //setState laods item value to memory (event)
-   //     items: e.target.value  
-    //  });
-    //}
-
-    //setNewListItem(e) {    //setState accepts new item and sets to memory 
-   //   this.setState({
-    //    newItem: this.state.items
-   //   });
-
-    //  this._input.focus();   //places a focus surrounding input text area
-   //   this._input.value = "";
-
-      //e.preventDefault(); //clear the input when submitting
-    //}
-
-    addItem(e) {
-      if (this._inputElement.value !== "") {
-        var newItem = {
-          text: this._inputElement.value,
-          key: Date.now()
-        };
-     
-        this.setState((prevState) => {
-          return { 
-            items: prevState.items.concat(newItem) 
-          };
-        });
-       
-        this._inputElement.value = "";
-      }
-       
-      console.log(this.state.items);
-         
-      e.preventDefault();
-    }
-    
+  handleChange(event) {
+    this.setState({items: event.target.value});
+  }
 
   
-    
 
-    
+
     render() {
       return (     
         <div className="App">
