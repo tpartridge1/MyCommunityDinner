@@ -12,19 +12,7 @@ import 'tachyons';
 
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      items: '',
-    };
-
-  }
-
-  handleChange(event) {
-    this.setState({items: event.target.value});
-  }
-
-  
+ 
 
 
     render() {
@@ -32,7 +20,7 @@ class App extends Component {
         <div className="App">
             <Navigation />
             <Header />
-            {/*<ItemInput > */}
+            {/*<ItemInput />*/}
             {/*<Unit />* /}
             {/*<PriceInput  /> */}
             <ShoppingList />

@@ -1,33 +1,50 @@
 import React, {Component} from 'react';
 import './ShoppingList.css'
+//import ItemInput from '../ItemInput/ItemInput';
+
 
 class ShoppingList extends Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        items: []
+      };
+      this.addItem = this.addItem.bind(this);
+    }
+    addItem(e) {
+      if (this._inputElement.value !== "") {
+        var newItem = {
+          text: this._inputElement.value,
+          key: Date.now()
+        };
+     
+        this.setState((prevState) => {
+          return { 
+            items: prevState.items.concat(newItem) 
+          };
+        });
+       
+        this._inputElement.value = "";
+      }
+      console.log(this.state.items);
+         
+      e.preventDefault();
+    }
+    
 
-	 render() {
-	   return (     
-       <div>
-         <h2 id="shopListHeader">My Shopping List</h2>
-         <form onSubmit={this.handleSubmit}>
-           <label>
-             Add Item: 
-            <input type="text" items={this.state} onSubmit={this.onSubmit}/>
-           </label>
-          <select name="unit" id="unit">
-            <option value="ea">each</option>
-            <option value="can">can</option>
-            <option value="pkg">package</option>
-            <option value="pound">lb</option>
-            <option value="ounces">oz</option>
-            <option value="bag">bag</option>
-            <option value="cup">cup</option>
-            <option value="box">box</option>
-            </select>
-            <input type="Submit" onChange={this.handleChange}/>
-         </form>
-     </div>
-    );
+  render() {
+    return(
+      <div>
+        <h2 id="header">My Shopping List</h2>
+          <form onSubmit={this.addItem}> 
+             <input ref={(a) => this._inputElement = a} 
+                placeholder="Item Name">
+             </input>
+             <button type="submit">Add</button>
+          </form>
+    </div>
+    )
   }
 }
-
 
 export default ShoppingList;
