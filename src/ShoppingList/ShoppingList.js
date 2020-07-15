@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './ShoppingList.css'
-//import ItemInput from '../ItemInput/ItemInput';
+import ItemInput from './ItemInput'
 
 
 class ShoppingList extends Component {
@@ -10,7 +10,10 @@ class ShoppingList extends Component {
         items: []
       };
       this.addItem = this.addItem.bind(this);
-    }
+      this.deleteItem = this.deleteItem.bind(this);  
+    };
+
+
     addItem(e) {
       if (this._inputElement.value !== "") {
         var newItem = {
@@ -30,6 +33,16 @@ class ShoppingList extends Component {
          
       e.preventDefault();
     }
+
+    
+    deleteItem(key){
+      let filteredItems = this.state.items.filter(function (item) {
+        return (item.key !== key);
+      });
+      this.setState({
+        items: filteredItems
+      });
+    }
     
 
   render() {
@@ -42,6 +55,10 @@ class ShoppingList extends Component {
              </input>
              <button type="submit">Add</button>
           </form>
+          <div>
+          <ItemInput entries={this.state.items}
+                     delete={this.deleteItem}/>
+          </div>
     </div>
     )
   }
