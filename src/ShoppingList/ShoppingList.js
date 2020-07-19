@@ -7,11 +7,25 @@ class ShoppingList extends Component {
     constructor(props) {
       super(props);
       this.state = {
-        items: []
+        items: [],
+        value: 'ea',
+        price: '0'
       };
       this.addItem = this.addItem.bind(this);
       this.deleteItem = this.deleteItem.bind(this);  
+      this.handleChange = this.handleChange.bind(this);
+      this.handleSubmit = this.handleSubmit.bind(this);
     };
+
+    handleChange(event) {
+      this.setState({value: event.target.value});
+      this.setState({price: event.target.price});
+    }
+
+    handleSubmit(event) {
+      //add function here
+      event.preventDefault();
+    }
 
 
     addItem(e) {
@@ -49,7 +63,7 @@ class ShoppingList extends Component {
     return(
       <div>
         <h2 id="header">My Shopping List</h2>
-          <form onSubmit={this.addItem}> 
+          <form onSubmit={this.addItem} >  
              <input ref={(a) => this._inputElement = a} 
                 placeholder="Item Name">
              </input>
@@ -58,6 +72,35 @@ class ShoppingList extends Component {
           <div>
           <ItemInput entries={this.state.items}
                      delete={this.deleteItem}/>
+          </div>
+          <div>
+          <form onSubmit={this.handleSubmit}>
+        <label>
+          Unit of Issue:
+          <select value={this.state.value} onChange={this.handleChange}>
+            <option value="ea">ea</option>
+            <option value="pkg">pkg</option>
+            <option value="pound">lb</option>
+            <option value="ounce">oz</option>
+            <option value="bag">bag</option>
+            <option value="cup">cup</option>
+            <option value="box">box</option>
+            <option value="other">other</option>
+          </select>
+        </label>
+        <button type="submit">Add</button>
+      </form>
+          </div>
+          <div>
+          <form onSubmit={this.handleSubmit}>
+        <label>
+          Price:
+          <select value={this.state.price} onChange={this.handleChange}>
+            
+          </select>
+        </label>
+        <button type="submit">Add</button>
+      </form>
           </div>
     </div>
     )
