@@ -1,15 +1,22 @@
 import React, {Component} from 'react';
 
 class Unit extends Component {
+    constructor() {
+      super();
+      
+    }
+ 
+
+  handleClick = () => {
+    getSelection();
+  }
+
   render() {
     return (    
       <div>
-      <form>
-      <p>Unit of Issue: </p>
-      <input
-        type="text" 
-      />
-      <select name="unit" id="unit">
+          <form>
+          <p>Unit of Issue: </p>
+          <select name="unit" id="unit" >
             <option value="ea">each</option>
             <option value="can">can</option>
             <option value="pkg">package</option>
@@ -18,8 +25,7 @@ class Unit extends Component {
             <option value="bag">bag</option>
             <option value="cup">cup</option>
             <option value="box">box</option>
-            </select>
-            <input type="Submit" onChange={this.handleChange}/>
+          </select>
     </form>
     </div>
    );
