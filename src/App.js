@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import Navigation from './Navigation/navigation';
 import PriceInput from './PriceInput/PriceInput';
-//import Unit from './Unit/Unit';
 import ShoppingList from './ShoppingList/ShoppingList';
 import Footer from './Footer/footer';
 import './App.css';
@@ -16,8 +15,7 @@ class App extends Component {
       return (     
         <div className="App">
             <Navigation />
-            {/*<Unit />
-            <PriceInput  /> */}
+            {/*<PriceInput  /> */}
             <ShoppingList/>
             {/*<Calculate /> */}
             <Footer />
