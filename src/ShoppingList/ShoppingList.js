@@ -1,6 +1,13 @@
 import React, {Component} from 'react';
 import './ShoppingList.css'
-import ItemInput from './ItemInput'
+import ItemInput from './ItemInput';
+import PriceInput from '../PriceInput/PriceInput';
+import Unit from '../Unit/Unit';
+import Quantity from './Quantity';
+import Calculate from '../Calculate';
+
+
+
 
 
 class ShoppingList extends Component {
@@ -8,7 +15,7 @@ class ShoppingList extends Component {
       super(props);
       this.state = {
         items: [],
-        value: 'ea',
+        value: '',
         price: '0'
       };
       this.addItem = this.addItem.bind(this);
@@ -34,6 +41,8 @@ class ShoppingList extends Component {
           text: this._inputElement.value,
           key: Date.now()
         };
+
+    
      
         this.setState((prevState) => {
           return { 
@@ -71,36 +80,11 @@ class ShoppingList extends Component {
           </form>
           <div>
           <ItemInput entries={this.state.items}
-                     delete={this.deleteItem}/>
-          </div>
-          <div>
-          <form onSubmit={this.handleSubmit}>
-        <label>
-          Unit of Issue:
-          <select value={this.state.value} onChange={this.handleChange}>
-            <option value="ea">ea</option>
-            <option value="pkg">pkg</option>
-            <option value="pound">lb</option>
-            <option value="ounce">oz</option>
-            <option value="bag">bag</option>
-            <option value="cup">cup</option>
-            <option value="box">box</option>
-            <option value="other">other</option>
-          </select>
-        </label>
-        <button type="submit">Add</button>
-      </form>
-          </div>
-          <div>
-          <form onSubmit={this.handleSubmit}>
-        <label>
-          Price:
-          <select value={this.state.price} onChange={this.handleChange}>
-            
-          </select>
-        </label>
-        <button type="submit">Add</button>
-      </form>
+          delete={this.deleteItem}/>
+          <Unit />
+          <Quantity />
+          <PriceInput />
+          <Calculate />
           </div>
     </div>
     )
