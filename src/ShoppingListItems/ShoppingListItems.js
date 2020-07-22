@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 
 
-class ItemInput extends Component {
+class ShoppingListItems extends Component {
 
   createTasks(item) {
     return <li key={item.key}>{item.text}</li>
@@ -24,5 +24,5 @@ class ItemInput extends Component {
 };
 
 
-export default ItemInput;
+export default ShoppingListItems;
 

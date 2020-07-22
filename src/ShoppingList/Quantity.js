@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Quantity() {
+const Quantity = () =>  {
     return(
         <div>
          <p>Quantity: </p>
