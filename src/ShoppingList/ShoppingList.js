@@ -14,26 +14,16 @@ class ShoppingList extends Component {
       super(props);
       this.state = {
         items: [],
-        handleSelectValue: 'ea',
-        price: '0'
-      };
+        value: 'ea'
+      }
+      this.createTasks = this.createTasks.bind(this);
       this.addItem = this.addItem.bind(this);
       this.deleteItem = this.deleteItem.bind(this); 
     };
-
-
-    handleSelectValue = event => {
-      this.setState({
-        selectedValue: event.target.value
-      });
-    };
-
-    handleFormSubmit = event => {
-      event.preventDefault();
+    
+ 
   
-      console.log("You have submitted:", this.state.selectedValue);
-    };
-
+   
     addItem(e) {
       if (this._inputElement.value !== "") {
         let newItem = {
@@ -55,6 +45,7 @@ class ShoppingList extends Component {
       e.preventDefault();
     }
 
+
     
     deleteItem(key){
       let filteredItems = this.state.items.filter(function (item) {
@@ -66,7 +57,6 @@ class ShoppingList extends Component {
     }
 
 
-   
 
   render() {
     return(
@@ -81,7 +71,7 @@ class ShoppingList extends Component {
           <div>
           <ShoppingListItems entries={this.state.items}
           delete={this.deleteItem}/>
-          <Unit />
+          <Unit/>
           <Quantity />
           <PriceInput />
           <Calculate />

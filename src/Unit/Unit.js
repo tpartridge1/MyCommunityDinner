@@ -2,31 +2,45 @@ import React from 'react';
 
 
 
- const Unit = () => {
+class Unit extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {value: 'ea'};
 
-  return (
-    <div> 
-       <form onSubmit={this.handleFormSubmit}> 
-        <p>Unit of Issue: </p>
-          <select 
-          value={this.state.selectedValue}
-          onChange={this.handleSelectValue}
-          className="form-control"
-          id='unit'
-          > <option value="ea">each</option>
-            <option value="can">can</option>
-            <option value="pkg">package</option>
-            <option value="pound">lb</option>
-            <option value="ounces">oz</option>
-            <option value="bag">bag</option>
-            <option value="cup">cup</option>
-            <option value="box">box</option>
-          </select>
-    </form>
-    </div>
-   );
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
- 
- 
+
+  handleChange(event) {
+    this.setState({value: event.target.value});
+  }
+
+  handleSubmit(event) {
+    alert('Your favorite flavor is: ' + this.state.value);
+    event.preventDefault();
+  }
+
+  render() {
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <label>
+          Select Unit of Issue  :
+          <select value={this.state.value} onChange={this.handleChange}>
+            <option value="ea">Each</option>
+            <option value="can">Can</option>
+            <option value="pkg">Package</option>
+            <option value="lb">Pound</option>
+            <option value="oz">Ounce</option>
+            <option value="bag">Bag</option>
+            <option value="cup">Cup</option>
+            <option value="box">Box</option>
+            <option value="other"></option>
+          </select>
+        </label>
+        <input type="submit" value="Submit" />
+      </form>
+    );
+  }
+}
 
 export default Unit;
