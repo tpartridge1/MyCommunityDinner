@@ -16,46 +16,39 @@ class ShoppingList extends Component {
         items: [],
         value: 'ea'
       }
-      this.createTasks = this.createTasks.bind(this);
       this.addItem = this.addItem.bind(this);
-      this.deleteItem = this.deleteItem.bind(this); 
+      this.deleteItem = this.deleteItem.bind(this);
     };
+
     
- 
-  
    
     addItem(e) {
       if (this._inputElement.value !== "") {
         let newItem = {
           text: this._inputElement.value,
           key: Date.now()
-        };
-
-        
+        };       
         this.setState((prevState) => {
           return { 
             items: prevState.items.concat(newItem) 
           };
         });
-       
         this._inputElement.value = "";
       }
-      console.log(this.state.items);
-         
+      console.log(this.state.items);  
       e.preventDefault();
     }
 
 
-    
     deleteItem(key){
-      let filteredItems = this.state.items.filter(function (item) {
+      var filteredItems = this.state.items.filter(function (item) {
         return (item.key !== key);
       });
       this.setState({
         items: filteredItems
       });
     }
-
+ 
 
 
   render() {
@@ -69,8 +62,7 @@ class ShoppingList extends Component {
              <button type="submit">Add</button>
           </form>
           <div>
-          <ShoppingListItems entries={this.state.items}
-          delete={this.deleteItem}/>
+          <ShoppingListItems entries={this.state.items} delete={this.deleteItem}/>
           <Unit/>
           <Quantity />
           <PriceInput />
